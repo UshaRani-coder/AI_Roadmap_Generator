@@ -34,7 +34,7 @@ export default function Hero() {
 
         {/* Description */}
         <p className="fade-up hero-delay-2 mx-auto mt-7 max-w-2xl text-base leading-7 text-muted sm:text-lg">
-          Tell us where you want to go, where you are today, and what you want
+          Tell us where you are today, and what you want
           to achieve. Roadmap AI creates a personalized path to help you get
           there.
         </p>

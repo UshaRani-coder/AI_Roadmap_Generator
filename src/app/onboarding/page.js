@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import OnboardingProgress from "@/components/onboarding/OnboardingProgress";
 import OnboardingNavigation from "@/components/onboarding/OnboardingNavigation";
@@ -16,6 +17,7 @@ import AdditionalContextStep from "@/components/onboarding/AdditionalContextStep
 const TOTAL_STEPS = 7;
 
 export default function OnboardingPage() {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
 
   const [answers, setAnswers] = useState({
@@ -67,7 +69,9 @@ export default function OnboardingPage() {
     if (!isCurrentStepValid()) return;
 
     if (currentStep === TOTAL_STEPS) {
-      console.log("Final roadmap data:", answers);
+      localStorage.setItem("roadmapAnswers", JSON.stringify(answers));
+
+      router.push("/roadmap");
       return;
     }
 

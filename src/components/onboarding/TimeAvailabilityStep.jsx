@@ -33,7 +33,7 @@ export default function TimeAvailabilityStep({ value, onChange }) {
               className={`flex items-center justify-between rounded-2xl border p-5 text-left transition-all duration-200 ${
                 isSelected
                   ? "border-accent bg-accent/10"
-                  : "border-border bg-card/40 hover:border-accent/50 hover:bg-card"
+                  : "border-border bg-card/40 hover:border-accent/50 hover:bg-card-hover"
               }`}
             >
               <span

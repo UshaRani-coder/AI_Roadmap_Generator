@@ -11,7 +11,7 @@ export default function GoalStep({ value, onChange }) {
   return (
     <section>
       <p className="mb-4 text-sm font-medium text-accent">
-        Let&apos;s start with your destination
+        Let's start with your destination
       </p>
 
       <h1 className="text-4xl font-semibold tracking-[-0.04em] text-foreground sm:text-5xl">
@@ -48,7 +48,7 @@ export default function GoalStep({ value, onChange }) {
               key={suggestion}
               type="button"
               onClick={() => onChange(suggestion)}
-              className="rounded-full border border-border bg-card/30 px-4 py-2.5 text-sm text-muted transition-all duration-200 hover:border-accent/50 hover:bg-card hover:text-foreground"
+              className="rounded-full border border-border bg-card/30 px-4 py-2.5 text-sm text-muted transition-all duration-200 hover:border-accent/50 hover:bg-card-hover hover:text-foreground"
             >
               {suggestion}
             </button>

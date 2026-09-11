@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar fixed top-0 right-0 left-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
-      <div className=" flex h-16 mx-4 items-center justify-between px-5 sm:px-6">
+      <div className=" flex h-16  items-center justify-between px-5 sm:px-6">
         {/* Logo */}
         <Link
           href="/"
@@ -21,6 +21,11 @@ export default function Navbar() {
           {/* <span className="text-accent transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">
             ✦
           </span> */}
+          <img
+  src="/roadmap-logo.png"
+  alt="RoadmapAI"
+  className="h-7 w-7 object-contain"
+ />
 
           <span className="transition-opacity duration-300 group-hover:opacity-80">
             RoadmapAI

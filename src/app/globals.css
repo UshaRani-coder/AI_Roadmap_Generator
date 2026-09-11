@@ -16,9 +16,8 @@
   --muted: #a1a1aa;
   --muted-foreground: #71717a;
 
-
-  --accent: #8B7CFF;
---accent-hover: #7468E8;
+  --accent: #8b7cff;
+  --accent-hover: #7468e8;
   --success: #22c55e;
 }
 
@@ -26,16 +25,16 @@
   --background: #fafafa;
   --foreground: #18181b;
 
-  --card: #ffffff;
-  --card-hover: #f4f4f5;
+ --card: #f4f4f5;
+  --card-hover: #ffffff;
 
   --border: #e4e4e7;
 
   --muted: #52525b;
   --muted-foreground: #71717a;
 
-   --accent: #0088d8;
-  --accent-hover: #0070b8;
+  --accent: #6d5ae6;
+  --accent-hover: #5b4bc4;
 
   --success: #16a34a;
 }
@@ -190,7 +189,6 @@ body {
     background-position: 100% 50%;
   }
 }
-
 
 .hero-gradient {
   background-size: 200% auto;

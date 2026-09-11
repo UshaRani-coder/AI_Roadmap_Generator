@@ -1,7 +1,5 @@
+import RoadmapContent from "@/components/roadmap/RoadmapContent";
+
 export default function RoadmapPage() {
-  return (
-    <div>
-      <h1>Roadmap</h1>
-    </div>
-  );
+  return <RoadmapContent />;
 }
