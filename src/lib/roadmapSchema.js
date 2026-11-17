@@ -1,85 +1,67 @@
+
 export const roadmapSchema = {
   type: "object",
   additionalProperties: false,
+
   properties: {
-    title: {
-      type: "string",
-    },
-
-    description: {
-      type: "string",
-    },
-
-    duration: {
-      type: "string",
-    },
-
-    timePerDay: {
-      type: "string",
-    },
-
-    experience: {
-      type: "string",
-    },
+    title: { type: "string" },
+    description: { type: "string" },
+    duration: { type: "string" },
+    timePerDay: { type: "string" },
+    experience: { type: "string" },
 
     phases: {
       type: "array",
       minItems: 3,
-      maxItems: 6,
+      maxItems: 7,
+
       items: {
         type: "object",
         additionalProperties: false,
+
         properties: {
           id: {
             type: "integer",
+            minimum: 1,
+            maximum: 7,
           },
 
-          title: {
-            type: "string",
+          title: { type: "string" },
+          durationWeeks: {
+            type: "integer",
+            minimum: 1,
           },
+          goal: { type: "string" },
+          description: { type: "string" },
 
-          duration: {
-            type: "string",
-          },
-
-          goal: {
-            type: "string",
-          },
-
-          description: {
-            type: "string",
-          },
-
-          skills: {
+          focusAreas: {
             type: "array",
-            items: {
-              type: "string",
-            },
+            minItems: 1,
+            items: { type: "string" },
           },
 
-          projects: {
+          actions: {
             type: "array",
-            items: {
-              type: "string",
-            },
+            minItems: 1,
+            items: { type: "string" },
           },
 
-          milestones: {
+          successIndicators: {
             type: "array",
-            items: {
-              type: "string",
-            },
+            minItems: 1,
+            items: { type: "string" },
           },
         },
+
         required: [
           "id",
           "title",
-          "duration",
+          "durationWeeks",
           "goal",
           "description",
-          "skills",
-          "projects",
-          "milestones",
+          "focusAreas",
+          "actions",
+          "successIndicators",
         ],
       },
     },

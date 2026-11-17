@@ -16,7 +16,7 @@ export default function RoadmapPhase({ phase }) {
           </h2>
 
           <span className="rounded-full border border-border bg-card px-3 py-1 text-xs text-muted">
-            {phase.duration}
+            {phase.durationWeeks} weeks
           </span>
         </div>
 
@@ -28,11 +28,12 @@ export default function RoadmapPhase({ phase }) {
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <h3 className="mb-3 text-sm font-medium text-foreground">
-            Skills to learn
+            {/* Skills to learn */}
+            Key Focus Areas
           </h3>
 
           <ul className="space-y-2">
-            {phase.skills.map((skill) => (
+            {phase.focusAreas.map((skill) => (
               <li
                 key={skill}
                 className="flex items-start gap-2 text-sm text-muted"
@@ -46,16 +47,17 @@ export default function RoadmapPhase({ phase }) {
 
         <div>
           <h3 className="mb-3 text-sm font-medium text-foreground">
-            Practice & build
+            {/* Practice & build */}
+            Action Steps
           </h3>
 
           <ul className="space-y-2">
-            {phase.projects.map((project) => (
+            {phase.actions.map((project) => (
               <li
                 key={project}
-                className="flex items-start gap-2 text-sm text-muted"
+                className="flex items-center gap-2 text-sm text-muted"
               >
-                <span className="mt-1 text-accent">→</span>
+                <span className="shrink-0 text-accent">→</span>
                 {project}
               </li>
             ))}
