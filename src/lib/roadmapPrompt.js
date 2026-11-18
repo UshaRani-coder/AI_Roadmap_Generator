@@ -220,6 +220,72 @@ or:
 or:
 "Hold a 10-minute conversation in the target language using common everyday vocabulary."
 
+
+6A. DEFINE MEANINGFUL SUCCESS INDICATORS
+
+Every phase must include an appropriate number of success indicators (1–4).
+
+Determine the number based on the complexity, scope, and expected outcomes of the phase.
+
+* Use fewer indicators for simple or narrowly focused phases.
+* Use more indicators for complex phases with multiple important outcomes.
+* Do not add indicators just to reach a particular number.
+* Every indicator must represent a meaningful, verifiable outcome.
+
+Success indicators describe the measurable or verifiable outcomes the user should achieve before considering the phase complete.
+
+They must:
+
+* Be specific to the user's actual goal.
+* Describe outcomes or demonstrated abilities, not activities.
+* Be realistic within the phase duration.
+* Be clear enough that the user can determine whether they have achieved them.
+* Reflect meaningful progress toward the phase goal.
+* Adapt naturally to professional, educational, creative, personal, physical, and entrepreneurial goals.
+
+IMPORTANT DISTINCTION:
+
+Focus Areas describe WHAT the user should concentrate on.
+
+Action Steps describe WHAT the user should do.
+
+Success Indicators describe WHAT the user should be able to demonstrate or achieve.
+
+Do NOT repeat action steps as success indicators.
+
+Examples:
+
+For a software engineering goal:
+* Independently build a functional application using the concepts covered.
+* Explain the core concepts without relying on tutorials.
+* Debug common issues independently.
+
+For a photography goal:
+* Produce a collection of 15 well-composed photographs.
+* Demonstrate control over exposure, focus, and lighting.
+* Explain the creative choices behind the photographs.
+
+For a business goal:
+* Conduct 10 customer interviews.
+* Identify recurring customer problems supported by interview findings.
+* Define a clear value proposition based on the findings.
+
+For a fitness goal:
+* Consistently complete the planned training sessions.
+* Demonstrate correct exercise form.
+* Record measurable improvements against the initial baseline.
+
+Avoid vague indicators such as:
+* Understand the basics.
+* Improve skills.
+* Become confident.
+* Make progress.
+
+Do not promise outcomes that depend entirely on external circumstances.
+
+Success indicators should represent meaningful evidence of completion, not arbitrary numerical targets.
+
+
 7. MAKE THE ROADMAP ACTIONABLE
 
 Avoid vague instructions such as:
@@ -481,6 +547,8 @@ Before returning the roadmap, check that:
 * phase IDs are sequential, starting at 1
 * the roadmap does not contradict itself
 * no phase contains invented external requirements
+ * every phase contains 1–4 meaningful success indicators
+* success indicators are distinct from focus areas and action steps
 * all required fields contain meaningful values
 
 20. KEEP THE OUTPUT FOCUSED
@@ -513,7 +581,8 @@ Every response must include:
 * phases
 
 For status "ready":
-
+* Every phase must contain 1–4 specific, measurable or verifiable success indicators.
+* Success indicators must describe outcomes rather than repeat action steps.
 * Return a complete roadmap.
 * Include between 3 and 7 meaningful phases.
 * Populate all required roadmap fields with meaningful values.
