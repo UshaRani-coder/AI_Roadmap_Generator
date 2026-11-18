@@ -130,16 +130,39 @@ ${answers.additionalContext || "Not provided"}
     }
 
     // Validate the roadmap structure
+
     if (
       !roadmap ||
       typeof roadmap !== "object" ||
-      !Array.isArray(roadmap.phases) ||
-      roadmap.phases.length < 3 ||
-      roadmap.phases.length > 7
+      !["ready", "needs_clarification", "invalid_input"].includes(
+        roadmap.status,
+      ) ||
+      typeof roadmap.message !== "string" ||
+      !Array.isArray(roadmap.phases)
     ) {
       throw new Error("Groq returned an invalid roadmap structure.");
     }
 
+    // Handle clarification and invalid input responses
+    if (
+      roadmap.status === "needs_clarification" ||
+      roadmap.status === "invalid_input"
+    ) {
+      if (roadmap.phases.length !== 0 || !roadmap.message.trim()) {
+        throw new Error("Groq returned an invalid roadmap structure.");
+      }
+
+      console.log("Roadmap status:", roadmap.status);
+
+      return Response.json(roadmap);
+    }
+
+    // Validate successful roadmap responses
+    if (roadmap.phases.length < 3 || roadmap.phases.length > 7) {
+      throw new Error("Groq returned an invalid roadmap structure.");
+    }
+
+    // Validate sequential phase IDs
     const hasSequentialIds = roadmap.phases.every(
       (phase, index) => phase.id === index + 1,
     );
@@ -147,7 +170,6 @@ ${answers.additionalContext || "Not provided"}
     if (!hasSequentialIds) {
       throw new Error("Groq returned invalid phase IDs.");
     }
-
     // Return the generated roadmap
     console.log("Generated phases:", roadmap.phases.length);
 
@@ -161,8 +183,17 @@ ${answers.additionalContext || "Not provided"}
   } catch (error) {
     console.error("Groq roadmap generation failed:", error);
 
-    const status =
-      error.status === 429
+    // Detect timeout errors
+    const isTimeout =
+      error.name?.toLowerCase().includes("timeout") ||
+      error.code === "ETIMEDOUT" ||
+      error.message?.toLowerCase().includes("timeout") ||
+      error.message?.toLowerCase().includes("timed out");
+
+    // Determine HTTP status
+    const status = isTimeout
+      ? 504
+      : error.status === 429
         ? 429
         : error.status === 503
           ? 503
@@ -170,9 +201,13 @@ ${answers.additionalContext || "Not provided"}
             ? 400
             : 500;
 
+    // Set user-friendly error message
     let message = error.message || "Roadmap generation failed.";
 
-    if (status === 429) {
+    if (isTimeout) {
+      message =
+        "Roadmap generation is taking longer than expected. Please try again in a moment.";
+    } else if (status === 429) {
       message = "Groq rate limit reached. Please try again later.";
     } else if (status === 503) {
       message = "Groq is temporarily unavailable. Please try again shortly.";
